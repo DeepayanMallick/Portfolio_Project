@@ -1,0 +1,64 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Deepayan Mallick{% endblock %}
+
+{% block content %}
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Hi, I'm Deepayan</h1>
+        <p class="lead text-muted">Hey, my name is Deepayan Mallick and I love to make Django websites. It's thril of handling the requests that the people want!</p>
+        <p>
+        <a href="mailto:deepayan.cse@gmail.com" class="btn btn-primary my-2">Email Me</a>
+        <br>
+        <br>
+        <img height="400" width="400" src="{% static 'img/Deepayan_Mallick.jpg' %}">
+        </p>
+    </div>
+</section>
+<main role="main">
+    <h1 class="text-center">Work</h1>
+    <br>
+    <h5 class="text-center tag-line">Here are few of my former clients.</h5>
+   <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          {% for job in jobs %}
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img class="card-img-top" src="{{ job.image.url }}">
+              <div class="card-body">
+                <p class="card-text">{{ job.summary }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+<!-- <section id="work">
+        <h2 class="text-center">Work</h2>
+        <div class="row">
+          <p class="text-center tag-line">Here are few of my former clients.</p>
+        </div>
+    
+       <div class="row work-row"> 
+          {% for job in jobs %}
+          <div class="small-12 medium-6 columns">
+            <img src="{{ job.image.url }}" alt="">
+          </div>
+          <div class="small-12 medium-5 medium-offset-1 columns">
+            <div class="details details-ftm">
+              <h3>{{ job.name }}</h3>
+              <p class="platform">Web</p>
+              <p class="icons"><i class="fi-monitor"></i><i class="fi-tablet-portrait"></i><i class="fi-mobile"></i></p>
+              <p>{{ job.summary }}</p>
+              <a class="my-button" target="_blank" href="job.project_url">Visit Website</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+</section>     -->
+</main>
+{% endblock %}
